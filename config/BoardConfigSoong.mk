@@ -28,6 +28,7 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
 SOONG_CONFIG_NAMESPACES += sparkGlobalVars
 SOONG_CONFIG_sparkGlobalVars += \
+    aapt_version_code \
     additional_gralloc_10_usage_bits \
     gralloc_handle_has_reserved_size \
     needs_camera_boottime \
@@ -75,6 +76,7 @@ TARGET_TRUST_USB_CONTROL_DISABLE ?= 0
 TARGET_USES_GRALLOC1 ?= false
 
 # Soong value variables
+SOONG_CONFIG_sparkGlobalVars_aapt_version_code := $(shell date -u +%Y%m%d)
 SOONG_CONFIG_sparkGlobalVars_additional_gralloc_10_usage_bits := $(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS)
 SOONG_CONFIG_sparkGlobalVars_target_init_vendor_lib := $(TARGET_INIT_VENDOR_LIB)
 SOONG_CONFIG_sparkGlobalVars_target_ld_shim_libs := $(subst $(space),:,$(TARGET_LD_SHIM_LIBS))
